@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<head>
+    <title>Talented Musicians Web Application</title>
+    <link rel="stylesheet" type="text/css" href="resources/css/default.css" />
+</head>
+<body>
+<h:form>
+    <table>
+        <tr>
+            <td style="text-align: center; border-bottom: hidden; border-top: hidden; border-color: #707070;">
+                <h:commandButton value="Add Page" action="index" style="width: 100%"/>
+            </td>
+            <td style="text-align: center; border-bottom: hidden; border-top: hidden; border-color: #707070;">
+                <h:commandButton value="Search Page" action="search" style="width: 100%"/>
+            </td>
+            <td style="text-align: center; border-bottom: hidden; border-top: hidden; border-color: #707070;">
+                <h:commandButton value="View Page" action="view" style="width: 100%"/>
+            </td>
+        </tr>
+    </table>
+</h:form>
+<hr/>
+<h1>Talented Musicians Web Application</h1>
+<h2>Search for a Record</h2>
+<p>Search by ID's or by an Artist's Name</p>
+<h:form>
+    <table>
+        <tr>
+            <td>ID:</td>
+            <td><h:inputText value="#{talentedMusiciansManager.id}"
+                             name="id"
+                             maxlength="5"/></td>
+        </tr>
+    </table>
+    <p></p>
+    <h:commandButton id="searchID" value="Search ID" action="searchResults">
+        <f:actionListener binding="#{talentedMusiciansManager.searchID()}"/>
+    </h:commandButton>
+    <h:commandButton id="resetID" value="Clear" action="reset" />
+    <p></p>
+    <h:messages showSummary="true"
+                showDetail="false"
+                errorStyle="color: #d20005"
+                infoStyle="color: #d20005"/>
+</h:form>
+<p></p>
+<h:form>
+    <table>
+        <tr>
+            <td>Artist Name:</td>
+            <td><h:inputText value="#{talentedMusiciansManager.artistName}"
+                             name="id"
+                             maxlength="50"/></td>
+        </tr>
+    </table>
+    <p></p>
+    <h:commandButton id="searchArtistName" value="Search Artist" action="searchResults">
+        <f:actionListener binding="#{talentedMusiciansManager.searchArtistName()}"/>
+    </h:commandButton>
+    <h:commandButton id="resetArtist" value="Clear" action="reset" />
+    <p></p>
+    <h:messages showSummary="true"
+                showDetail="false"
+                errorStyle="color: #d20005"
+                infoStyle="color: #d20005"/>
+</h:form>
+</body>
+</html>

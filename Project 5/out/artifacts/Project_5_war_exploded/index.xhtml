@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<head>
+    <title>Talented Musicians Web Application</title>
+    <link rel="stylesheet" type="text/css" href="resources/css/default.css" />
+</head>
+<body>
+<h:form>
+    <table>
+        <tr>
+            <td style="text-align: center; border-bottom: hidden; border-top: hidden; border-color: #707070;">
+                <h:commandButton value="Add Page" action="index" style="width: 100%"/>
+            </td>
+            <td style="text-align: center; border-bottom: hidden; border-top: hidden; border-color: #707070;">
+                <h:commandButton value="Search Page" action="search" style="width: 100%"/>
+            </td>
+            <td style="text-align: center; border-bottom: hidden; border-top: hidden; border-color: #707070;">
+                <h:commandButton value="View Page" action="view" style="width: 100%"/>
+            </td>
+        </tr>
+    </table>
+</h:form>
+<hr/>
+<h1>Talented Musicians Web Application</h1>
+<h:graphicImage url="#{resource['images:duke.waving.gif']}"
+                alt="Duke waving his hand"/>
+<h2>Add a Record</h2>
+<p>Fill in all the fields below and click the Add Record button. To view any records you've added, go to the View Page.</p>
+<h:form>
+    <table>
+        <tr>
+            <td>ID:</td>
+            <td><h:inputText value="#{talentedMusiciansManager.id}"
+                             required="true"
+                             requiredMessage="Error: An ID is required."
+                             maxlength="5"/></td>
+        </tr>
+        <tr>
+            <td>Artist Name:</td>
+            <td><h:inputText value="#{talentedMusiciansManager.artistName}"
+                             required="true"
+                             requiredMessage="Error: An Artist is required."
+                             maxlength="50" /></td>
+        </tr>
+        <tr>
+            <td>First Name:</td>
+            <td><h:inputText value="#{talentedMusiciansManager.firstName}"
+                             required="true"
+                             requiredMessage="Error: A First Name is required."
+                             maxlength="25" /></td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td><h:inputText value="#{talentedMusiciansManager.lastName}"
+                             required="true"
+                             requiredMessage="Error: A Last Name is required."
+                             maxlength="25" /></td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td><h:inputText value="#{talentedMusiciansManager.age}"
+                             required="true"
+                             requiredMessage="Error: An Age is required."
+                             maxlength="25" /></td>
+        </tr>
+        <tr>
+            <td>Genre:</td>
+            <td><h:inputText value="#{talentedMusiciansManager.genre}"
+                             required="true"
+                             requiredMessage="Error: A Genre is required."
+                             maxlength="25" /></td>
+        </tr>
+        <tr>
+            <td>Grammy_Noms:</td>
+            <td><h:inputText value="#{talentedMusiciansManager.grammyNoms}"
+                             required="true"
+                             requiredMessage="Error: Number of Grammy Nominations is required."
+                             maxlength="25" /></td>
+        </tr>
+        <tr>
+            <td>Grammys_Won:</td>
+            <td><h:inputText value="#{talentedMusiciansManager.grammyWins}"
+                             required="true"
+                             requiredMessage="Error: Number of Grammys Won is required."
+                             maxlength="25" /></td>
+        </tr>
+    </table>
+    <p></p>
+    <h:commandButton id="addRecord" value="Add Record" action="#{talentedMusiciansManager.addNewTalentedMusician}"/>
+    <h:commandButton id="reset" value="Clear" action="reset" />
+    <p></p>
+    <h:messages showSummary="true"
+                showDetail="false"
+                errorStyle="color: #d20005"
+                infoStyle="color: #d20005"/>
+</h:form>
+</body>
+</html>

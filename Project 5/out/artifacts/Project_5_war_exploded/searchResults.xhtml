@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<head>
+    <title>Talented Musicians Web Application</title>
+    <link rel="stylesheet" type="text/css" href="resources/css/default.css" />
+</head>
+<body>
+<h:form>
+    <table>
+        <tr>
+            <td style="text-align: center; border-bottom: hidden; border-top: hidden; border-color: #707070;">
+                <h:commandButton value="Add Page" action="index" style="width: 100%"/>
+            </td>
+            <td style="text-align: center; border-bottom: hidden; border-top: hidden; border-color: #707070;">
+                <h:commandButton value="Search Page" action="search" style="width: 100%"/>
+            </td>
+            <td style="text-align: center; border-bottom: hidden; border-top: hidden; border-color: #707070;">
+                <h:commandButton value="View Page" action="view" style="width: 100%"/>
+            </td>
+        </tr>
+    </table>
+</h:form>
+<hr/>
+<h1>Talented Musicians Web Application</h1>
+<h2>Search Results</h2>
+<p>Simply fill in any combination of fields below and click the Search button</p>
+<h:dataTable value="#{talentedMusiciansBean.searchDB()}" var="tm"
+             styleClass="tm-table"
+             headerClass="tm-table-header"
+             rowClasses="tm-table-odd-row,tm-table-even-row">
+    <h:column><f:facet name="header">ID</f:facet>
+        #{tm.id}
+    </h:column>
+    <h:column><f:facet name="header">ARTIST_NAME</f:facet>
+        #{tm.artistName}
+    </h:column>
+    <h:column><f:facet name="header">FIRST_NAME</f:facet>
+        #{tm.firstName}
+    </h:column>
+    <h:column><f:facet name="header">LAST_NAME</f:facet>
+        #{tm.lastName}
+    </h:column>
+    <h:column><f:facet name="header">AGE</f:facet>
+        #{tm.age}
+    </h:column>
+    <h:column><f:facet name="header">GENRE</f:facet>
+        #{tm.genre}
+    </h:column>
+    <h:column><f:facet name="header">GRAMMY_NOMS</f:facet>
+        #{tm.grammyNoms}
+    </h:column>
+    <h:column><f:facet name="header">GRAMMYS_WON</f:facet>
+        #{tm.grammyWins}
+    </h:column>
+</h:dataTable>
+<h:form>
+    <h:commandButton id="searchHome" value="Search Again" action="search" />
+    <h:messages showSummary="true"
+                showDetail="false"
+                errorStyle="color: #d20005"
+                infoStyle="color: #d20005"/>
+</h:form>
+</body>
+</html>
