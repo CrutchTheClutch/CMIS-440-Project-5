@@ -1,5 +1,5 @@
 # CMIS-440-Project-5
-#### Create a remote database that can be manipulated
+#### Create a remote database that can be manipulated.
 
 Create a database that you can add records to, delete records, view records, and search  
 
